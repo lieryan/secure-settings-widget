@@ -10,7 +10,7 @@ import android.util.Log;
 import android.widget.RemoteViews;
 
 public class ADBUpdater extends BroadcastReceiver {
-	int[] statusImage = {R.drawable.disabled, R.drawable.icon};
+	final static int[] statusImage = {R.drawable.disabled, R.drawable.enabled};
 	@Override
 	public void onReceive(Context context, Intent intent) {
 		Log.d("ADBUpdater", "received a request to toggle ADB");

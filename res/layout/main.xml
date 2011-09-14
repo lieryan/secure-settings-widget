@@ -4,5 +4,5 @@
 
 	<ImageView 
 		android:id="@+id/toggle" 
-		android:src="@drawable/icon" android:scaleType="center" android:layout_height="fill_parent" android:layout_width="fill_parent"></ImageView>
+		android:src="@drawable/enabled" android:scaleType="center" android:layout_height="fill_parent" android:layout_width="fill_parent"></ImageView>
 </LinearLayout>

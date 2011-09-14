@@ -14,14 +14,20 @@ public class ADBUpdater extends BroadcastReceiver {
 	@Override
 	public void onReceive(Context context, Intent intent) {
 		Log.d("ADBUpdater", "received a request to toggle ADB");
+		
+		// get current USB debugging settings
 		int adb = Settings.Secure.getInt(context.getContentResolver(), Settings.Secure.ADB_ENABLED, 0);
+		
+		// toggle the USB debugging setting
 		adb = adb == 0 ? 1 : 0;
 		Settings.Secure.putInt(context.getContentResolver(), Settings.Secure.ADB_ENABLED, adb);
 			
-		// switch the image on the widget to reflect ADB status
+		// switch the icon to reflect USB debugging status
 		AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
 		RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.main);
 		views.setImageViewResource(R.id.toggle, statusImage[adb]);
+		
+		// update the widgets
 		appWidgetManager.updateAppWidget(new ComponentName(context, ADBAppWidgetProvider.class), views);
 	}
 }
